@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807154009) do
+ActiveRecord::Schema.define(:version => 20120807163030) do
+
+  create_table "deal_thresholds", :force => true do |t|
+    t.integer  "quantity"
+    t.decimal  "price"
+    t.integer  "deal_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "deal_thresholds", ["deal_id"], :name => "index_deal_thresholds_on_deal_id"
 
   create_table "deals", :force => true do |t|
     t.datetime "dealstart"

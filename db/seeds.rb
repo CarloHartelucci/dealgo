@@ -14,8 +14,14 @@ db =
 					 facebook:"https://www.facebook.com/pages/Dirty-Bird-to-go/122190816732")
 
 Deal.delete_all
-Deal.create!(:dealstart => DateTime.now, 
-			 :dealend => DateTime.now + 7, 
-			 :maxquantity => 100, 
-			 :name => "Dirty Bird Referral Program",
-			 :merchant_id => db.id)
+deal =
+	Deal.create!(:dealstart => DateTime.now, 
+				 :dealend => DateTime.now + 7, 
+				 :maxquantity => 100, 
+				 :name => "Dirty Bird Referral Program",
+				 :merchant_id => db.id)
+
+DealThreshold.delete_all
+DealThreshold.create!(price:0.95*25, quantity:0, deal_id: deal.id)
+DealThreshold.create!(price:0.90*25, quantity:50, deal_id: deal.id)
+DealThreshold.create!(price:0.85*25, quantity:100, deal_id: deal.id)
