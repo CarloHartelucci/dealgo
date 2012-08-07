@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="span6 offset3">
+		<h1><%= @deal.merchant.name %></h1>
+		<h2><%= @deal.name %></h2>
+		<h3><%= @deal.description %></h3>
+		<p>From <%= @deal.dealstart.to_s(:long) %> to <%= @deal.dealend.to_s(:long) %></p>
+		<p>Sold: <%= @deal.quantity_sold %> Remaining: <%= @deal.maxquantity - @deal.quantity_sold %> Current Price: <%= @deal.current_price %>
+		<table>
+			<thead>
+				<tr>
+					<th>We sell</th>
+					<th>You pay </th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @deal.deal_thresholds.each do |d| %>
+				<tr>
+					<td><%= d.quantity %></td>
+					<td><%= d.price %> </td>
+					<% prev_quantity = d.quantity %>
+				</tr>
+				<% end %>			
+			</tbody>
+		</table>
+		<a class="btn btn-large-primary btn-success">Purchase!</a>
+		<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+		<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	</div>
+</div>

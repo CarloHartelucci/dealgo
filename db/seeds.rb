@@ -18,7 +18,8 @@ deal =
 	Deal.create!(:dealstart => DateTime.now, 
 				 :dealend => DateTime.now + 7, 
 				 :maxquantity => 100, 
-				 :name => "Dirty Bird Referral Program",
+				 :name => "Customer Referral Program",
+				 :description => "Purchase $25 dollars at a discount up to 15% off. The more vouchers sold the deeper the discount",
 				 :merchant_id => db.id)
 
 DealThreshold.delete_all
