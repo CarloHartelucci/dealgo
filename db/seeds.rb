@@ -22,6 +22,14 @@ deal =
 				 :merchant_id => db.id)
 
 DealThreshold.delete_all
-DealThreshold.create!(price:0.95*25, quantity:0, deal_id: deal.id)
-DealThreshold.create!(price:0.90*25, quantity:50, deal_id: deal.id)
-DealThreshold.create!(price:0.85*25, quantity:100, deal_id: deal.id)
+dt1 = DealThreshold.create!(price:0.95*25, quantity:0, deal_id: deal.id)
+dt2 = DealThreshold.create!(price:0.90*25, quantity:50, deal_id: deal.id)
+dy3 = DealThreshold.create!(price:0.85*25, quantity:100, deal_id: deal.id)
+
+Purchaser.delete_all
+purchaser = Purchaser.create!(firstname:"Charlie", lastname:"Hartel", 
+							 email:"charliehartel@yahoo.com", 
+							 phone:"917-209-1280")
+
+Purchase.delete_all
+purchase = Purchase.create!(quantity:1, purchased_at:DateTime.now, deal_id:deal.id, purchaser_id: purchaser.id)
