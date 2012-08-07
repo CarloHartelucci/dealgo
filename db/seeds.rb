@@ -33,3 +33,8 @@ purchaser = Purchaser.create!(firstname:"Charlie", lastname:"Hartel",
 
 Purchase.delete_all
 purchase = Purchase.create!(quantity:1, purchased_at:DateTime.now, deal_id:deal.id, purchaser_id: purchaser.id)
+
+PaymentInfo.delete_all
+pi = PaymentInfo.create!(purchaser_id:purchaser.id, 
+						 card_number:12345678987654321, card_type:"VISA",
+						 expiration_month:12, expiration_year:2015)

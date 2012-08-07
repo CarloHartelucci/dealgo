@@ -8,4 +8,16 @@ class Deal < ActiveRecord::Base
   validate :dealend, presence: true
   validate :dealstart, presence: true
 
+  def quantity_sold
+  	self.purchases.sum(:quantity)
+  end
+
+  def current_price
+  	self.deal_thresholds.minimum(:price, conditions: ["quantity <= ?", quantity_sold ])
+  end
+
+  def closed?
+  	false unless self.dealend < DateTime.now || quantity_sold == :maxquantity else true
+  end
+
 end
