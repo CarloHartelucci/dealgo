@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="span6 offset3">
+		<%= form_for :purchase, url:@url do |f| %>
+			
+			<%= f.label "First Name" %>
+			<%= f.text_field :first_name %>
+
+			<%= f.label "Last Name" %>
+			<%= f.text_field :last_name %>
+
+			<%= f.label "Email Address" %>
+			<%= f.email_field :email %>
+
+			<%= f.label "Phone Number" %>
+			<%= f.telephone_field :phone %>
+
+			<%= f.label "Quantity" %>
+			<%= f.number_field :quantity %>
+
+			<%= f.label "Credit Card Number" %>
+			<%= f.text_field :card_number %>
+
+			<%= f.label "Expiration" %>
+			<%= f.number_field :expiration_month %>
+			<%= f.number_field :expiration_year %>
+
+			<%= f.submit class:"btn btn-large btn-success" %>
+		<% end %>
+	</div>
+</div>

@@ -1,5 +1,9 @@
 DealGo::Application.routes.draw do
   root :to => "pages#home" 
+  get "purchase/:id" => "pages#purchase"
+  post "purchase/:id" => "pages#submit"
+  match 'purchase/:id/confirmation' => "pages#confirmation"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
