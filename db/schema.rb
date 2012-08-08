@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808133647) do
+ActiveRecord::Schema.define(:version => 20120808141736) do
 
   create_table "credit_card_types", :force => true do |t|
     t.string   "card_type"
@@ -69,8 +69,9 @@ ActiveRecord::Schema.define(:version => 20120808133647) do
     t.string   "lastname"
     t.string   "email"
     t.string   "phone"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.boolean  "notification_optin"
   end
 
   create_table "purchases", :force => true do |t|

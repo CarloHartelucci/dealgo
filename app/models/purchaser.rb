@@ -1,5 +1,5 @@
 class Purchaser < ActiveRecord::Base
-  attr_accessible :email, :firstname, :lastname, :phone
+  attr_accessible :email, :firstname, :lastname, :phone, :notification_optin
   has_many :purchases
   has_one :payment_info
 

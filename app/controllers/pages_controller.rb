@@ -46,5 +46,6 @@ class PagesController < ApplicationController
 
 	def confirmation
 		@purchase = Purchase.find(params[:id])
+		@deal = @purchase.deal
 	end
 end

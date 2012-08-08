@@ -27,6 +27,10 @@
 			<%= f.number_field :expiration_month %>
 			<%= f.number_field :expiration_year %>
 
+			<hr>
+			<%= render 'follow_and_like' %>
+			<p><%= f.check_box :notification_optin %> Notify me of similar deals from other great merchants!</p>
+
 			<%= f.submit class:"btn btn-large btn-success" %>
 		<% end %>
 	</div>

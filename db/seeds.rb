@@ -30,7 +30,8 @@ dy3 = DealThreshold.create!(price:0.85*25, quantity:100, deal_id: deal.id)
 Purchaser.delete_all
 purchaser = Purchaser.create!(firstname:"Charlie", lastname:"Hartel", 
 							 email:"charliehartel@yahoo.com", 
-							 phone:"917-209-1280")
+							 phone:"917-209-1280",
+							 notification_optin:true)
 
 Purchase.delete_all
 purchase = Purchase.create!(quantity:1, purchased_at:DateTime.now, deal_id:deal.id, purchaser_id: purchaser.id)
