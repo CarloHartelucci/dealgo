@@ -1,11 +1,11 @@
 <div class="container">
 	<div class="span6 offset3">
-		<h1>Purchase Accepted!</h1>
+		<p>Purchase Accepted!</p>
 		<p>Name:  <%= @purchase.purchaser.firstname %> <%= @purchase.purchaser.lastname %> </p>
 		<p>Email: <%= @purchase.purchaser.email %>	Phone:	<%= @purchase.purchaser.phone %> </p>
 		<p>Quantity Purchased: <%= @purchase.quantity %></p>
 		<p>Credit Card: <%= @purchase.purchaser.payment_info.card_number %>   Expiration: <% @purchase.purchaser.payment_info.expiration_month %>/<%= @purchase.purchaser.payment_info.expiration_year %> </p>
-		<h3>You will receive an email confirmation and your credit card will be charged once the deal closes.  Please contact us at 'support email here' if you have any questions in the meantime.</h3>
+		<p>You will receive an email confirmation and your credit card will be charged once the deal closes.  Please contact us at 'support email here' if you have any questions in the meantime.</p>
 
 		<hr>
 		<%= render 'follow_and_like' %>
