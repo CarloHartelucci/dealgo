@@ -18,14 +18,15 @@ deal =
 	Deal.create!(:dealstart => DateTime.now, 
 				 :dealend => DateTime.now + 7, 
 				 :maxquantity => 100, 
+				 :base_price => 25,
 				 :name => "Customer Referral Program",
 				 :description => "Purchase $25 dollars at a discount up to 15% off. The more vouchers sold the deeper the discount",
 				 :merchant_id => db.id)
 
 DealThreshold.delete_all
-dt1 = DealThreshold.create!(price:0.95*25, quantity:0, deal_id: deal.id)
-dt2 = DealThreshold.create!(price:0.90*25, quantity:50, deal_id: deal.id)
-dy3 = DealThreshold.create!(price:0.85*25, quantity:100, deal_id: deal.id)
+dt1 = DealThreshold.create!(discount:5, quantity:0, deal_id: deal.id)
+dt2 = DealThreshold.create!(discount:10, quantity:50, deal_id: deal.id)
+dy3 = DealThreshold.create!(discount:15, quantity:100, deal_id: deal.id)
 
 Purchaser.delete_all
 purchaser = Purchaser.create!(firstname:"Charlie", lastname:"Hartel", 

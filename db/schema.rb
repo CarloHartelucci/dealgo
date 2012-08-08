@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808141736) do
+ActiveRecord::Schema.define(:version => 20120808153737) do
 
   create_table "credit_card_types", :force => true do |t|
     t.string   "card_type"
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20120808141736) do
 
   create_table "deal_thresholds", :force => true do |t|
     t.integer  "quantity"
-    t.decimal  "price"
     t.integer  "deal_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "discount"
   end
 
   add_index "deal_thresholds", ["deal_id"], :name => "index_deal_thresholds_on_deal_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120808141736) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "description"
+    t.decimal  "base_price"
   end
 
   add_index "deals", ["merchant_id"], :name => "index_deals_on_merchant_id"

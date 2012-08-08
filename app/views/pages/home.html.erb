@@ -4,20 +4,21 @@
 		<p><%= @deal.name %></p>
 		<p><%= @deal.description %></p>
 		<p>From <%= @deal.dealstart.to_s(:long) %> to <%= @deal.dealend.to_s(:long) %></p>
-		<p>Sold: <%= @deal.quantity_sold %> Remaining: <%= @deal.maxquantity - @deal.quantity_sold %> Current Price: <%= @deal.current_price %>
+		<p>Sold: <%= @deal.quantity_sold %> Remaining: <%= @deal.maxquantity - @deal.quantity_sold %> Current Discount: <%= @deal.current_discount %>
 		<table>
 			<thead>
 				<tr>
 					<th>We sell</th>
-					<th>You pay </th>
+					<th>Discount</th>
+					<th>You Pay</th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @deal.deal_thresholds.each do |d| %>
 				<tr>
 					<td><%= d.quantity %></td>
-					<td><%= d.price %> </td>
-					<% prev_quantity = d.quantity %>
+					<td><%= d.discount %>% off </td>
+					<td>$<%= d.discount_price %> </td>
 				</tr>
 				<% end %>			
 			</tbody>
