@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
 	def purchase
 		@deal = Deal.find(params[:id])
+		@card_types = CreditCardType.all
 	end
 
 	def submit
@@ -40,10 +41,10 @@ class PagesController < ApplicationController
 
 		logger.info @payment_info
 
-		redirect_to "/purchase/#{params[:id]}/confirmation"
+		redirect_to "/confirmation/#{@purchase.id}"
 	end
 
 	def confirmation
-
+		@purchase = Purchase.find(params[:id])
 	end
 end

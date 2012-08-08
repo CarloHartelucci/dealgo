@@ -39,3 +39,8 @@ PaymentInfo.delete_all
 pi = PaymentInfo.create!(purchaser_id:purchaser.id, 
 						 card_number:12345678987654321, card_type:"VISA",
 						 expiration_month:12, expiration_year:2015)
+
+CreditCardType.delete_all
+CreditCardType.create!(card_type:"VISA", card_description:"Visa")
+CreditCardType.create!(card_type:"MC", card_description:"MasterCard")
+CreditCardType.create!(card_type:"AMEX", card_description:"American Express")

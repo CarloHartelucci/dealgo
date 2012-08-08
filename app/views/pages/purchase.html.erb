@@ -20,6 +20,9 @@
 			<%= f.label "Credit Card Number" %>
 			<%= f.text_field :card_number %>
 
+			<%= f.label "Credit Card Type" %>
+			<%= f.collection_select :card_type, @card_types, :card_type, :card_description %>
+
 			<%= f.label "Expiration" %>
 			<%= f.number_field :expiration_month %>
 			<%= f.number_field :expiration_year %>
