@@ -1,37 +1,38 @@
 <div class="container">
 	<div class="span6 offset3">
-		<%= form_for :purchase, url:@url do |f| %>
+		<%= render 'shared/error_messages', :errors => @errors %>
+		<%= form_tag @url do %>
 			
-			<%= f.label "First Name" %>
-			<%= f.text_field :first_name %>
+			<%= label_tag "First Name" %>
+			<%= text_field_tag :first_name %>
 
-			<%= f.label "Last Name" %>
-			<%= f.text_field :last_name %>
+			<%= label_tag "Last Name" %>
+			<%= text_field_tag :last_name %>
 
-			<%= f.label "Email Address" %>
-			<%= f.email_field :email %>
+			<%= label_tag "Email Address" %>
+			<%= email_field_tag :email %>
 
-			<%= f.label "Phone Number" %>
-			<%= f.telephone_field :phone %>
+			<%= label_tag "Phone Number" %>
+			<%= telephone_field_tag :phone %>
 
-			<%= f.label "Quantity" %>
-			<%= f.number_field :quantity %>
+			<%= label_tag "Quantity" %>
+			<%= number_field_tag :quantity,  0,  min: 0  %>
 
-			<%= f.label "Credit Card Number" %>
-			<%= f.text_field :card_number %>
+			<%= label_tag "Credit Card Number" %>
+			<%= text_field_tag :card_number %>
 
-			<%= f.label "Credit Card Type" %>
-			<%= f.collection_select :card_type, @card_types, :card_type, :card_description %>
+			<%= label_tag "Credit Card Type" %>
+			<%= collection_select '', :card_type, @card_types, :card_type, :card_description %>
 
-			<%= f.label "Expiration" %>
-			<%= f.number_field :expiration_month %>
-			<%= f.number_field :expiration_year %>
+			<%= label_tag "Expiration" %>
+			<%= number_field_tag :expiration_month, 1, min: 1, max: 12 %>
+			<%= number_field_tag :expiration_year, DateTime.now.year , min: DateTime.now.year %>
 
 			<hr>
 			<%= render 'follow_and_like' %>
-			<p><%= f.check_box :notification_optin %> Notify me of similar deals from other great merchants!</p>
+			<p><%= check_box_tag :notification_optin %> Notify me of similar deals from other great merchants!</p>
 
-			<%= f.submit class:"btn btn-large btn-success" %>
+			<%= submit_tag "Purchase", :class=>"btn btn-large btn-success" %>
 		<% end %>
 	</div>
 </div>

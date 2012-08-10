@@ -3,8 +3,10 @@ class Purchaser < ActiveRecord::Base
   has_many :purchases
   has_one :payment_info
 
-  validate :email, presence: true
-  validate :firstname, presence: true
-  validate :lastname, presence: true
-  validate :phone, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true,
+  					format: { with: VALID_EMAIL_REGEX }
+  validates :firstname, presence: true
+  validates :lastname, presence: true
+  validates :phone, presence: true
 end

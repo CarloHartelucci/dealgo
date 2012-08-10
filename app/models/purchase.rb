@@ -3,9 +3,9 @@ class Purchase < ActiveRecord::Base
   belongs_to :deal
   belongs_to :purchaser
 
-  validate :purchased_at, presence: true
-  validate :quantity, presence: true
-  validate :purchaser_id, presence: true
-  validate :deal_id, presence: true
+  validates :purchased_at, presence: true
+  validates :quantity, presence: true
+  validates :purchaser_id, presence: true
+  validates :deal_id, presence: true
 
 end

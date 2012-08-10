@@ -11,37 +11,47 @@ class PagesController < ApplicationController
 	def submit
 		logger = Logger.new STDOUT
 
-		logger.info params
+		@errors = []
+		@card_types = CreditCardType.all
+		@deal = Deal.find(params[:id])
+		@purchaser = Purchaser.new(firstname: params[:first_name],
+								   lastname: params[:last_name],
+								   email: params[:email],
+								   phone: params[:phone])
+		if @purchaser.valid?
+			@purchaser.save
+		else
+			@purchaser.errors.full_messages.each do |msg|
+				@errors << msg
+			end
+		end
 
-		@purchaser = Purchaser.new
-		@purchaser.firstname = params[:purchase][:first_name]
-		@purchaser.lastname = params[:purchase][:last_name]
-		@purchaser.email = params[:purchase][:email]
-		@purchaser.phone = params[:purchase][:phone]
-		@purchaser.save
+		@payment_info = PaymentInfo.new(purchaser_id: @purchaser.id,
+									   card_number: params[:card_number],
+									   card_type: params[:card_type],
+									   expiration_month: params[:expiration_month],
+									   expiration_year: params[:expiration_year])
+		if @payment_info.valid?
+			@payment_info.save
+		else
+			@payment_info.errors.full_messages.each do |msg|
+				@errors << msg
+			end
+		end
 
-		logger.info @purchaser
+		@purchase = @deal.create_purchase(@purchaser, Integer(params[:quantity]))
+		if @purchase.valid?
+			@purchase.save
+		end
 
-		@purchase = Purchase.new
-		@purchase.purchased_at = DateTime.now
-		@purchase.deal_id = params[:id]
-		@purchase.quantity = params[:purchase][:quantity]
-		@purchase.purchaser_id = @purchaser.id
-		@purchase.save
-
-		logger.info @purchase
-
-		@payment_info = PaymentInfo.new
-		@payment_info.card_number = params[:purchase][:card_number]
-		@payment_info.card_type = "AMEX"
-		@payment_info.expiration_month = params[:purchase][:expiration_month]
-		@payment_info.expiration_year = params[:purchase][:expiration_year]
-		@payment_info.purchaser_id = @purchaser.id
-		@payment_info.save
-
-		logger.info @payment_info
-
-		redirect_to "/confirmation/#{@purchase.id}"
+		if @errors.count == 0
+			redirect_to "/confirmation/#{@purchase.id}"
+		else
+			@purchaser.delete
+			@payment_info.delete
+			@purchase.delete
+			render 'purchase'
+		end
 	end
 
 	def confirmation
