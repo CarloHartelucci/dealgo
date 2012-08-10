@@ -9,7 +9,10 @@ class PaymentInfo < ActiveRecord::Base
    						 length: { minimum: 16, maximum: 20 },
   						 format: { with: VALID_CREDIT_CARD_REGEX }
   validates :expiration_month, presence: true,
-  							  inclusion: [1..12]
+  							  numericality: { greater_than: 0, less_than:13, integer_only: true}
   validates :expiration_year, presence: true,
-  							 inclusion: [DateTime.now.year..2020]
+  							 numericality: { greater_than_equal_to: DateTime.now.year, 
+  							 				 less_than: DateTime.now.year + 10,
+  							 				 integer_only: true
+  							 				}
 end
