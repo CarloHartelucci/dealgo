@@ -14,7 +14,7 @@ class Deal < ActiveRecord::Base
   end
 
   def current_discount
-  	self.deal_thresholds.minimum(:discount, conditions: ["quantity <= ?", quantity_sold ])
+  	self.deal_thresholds.maximum(:discount, conditions: ["quantity <= ?", quantity_sold ])
   end
 
   def closed?

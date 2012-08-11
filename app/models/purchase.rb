@@ -17,8 +17,6 @@ class Purchase < ActiveRecord::Base
 
   protected
   	def before_create
-  	  logger = Logger.new STDOUT
-  	  logger.info 'after_initialize'
   	  self.purchase_code = SecureRandom.urlsafe_base64(10)
     end
 end
