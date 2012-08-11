@@ -18,27 +18,14 @@ class Deal < ActiveRecord::Base
   end
 
   def closed?
-  	false unless self.dealend < DateTime.now || quantity_sold == :maxquantity else true
+    if self.dealend < DateTime.now || quantity_sold == :maxquantity
+      return true
+    else
+      return false
+    end
   end
 
   def available_quantity
     self.maxquantity - self.quantity_sold
-  end
-
-  def quantity_available(quantity)
-    true unless quantity > available_quantity else false
-  end
-
-  def create_purchase(purchaser, quantity)
-    purchase = Purchase.new
-    if quantity <= available_quantity 
-      purchase.deal_id = self.id
-      purchase.quantity = quantity
-      purchase.purchaser_id = purchaser.id
-    else
-      purchase.errors.add(:quantity, "exceeds available quantity")
-    end
-
-    return purchase
   end
 end

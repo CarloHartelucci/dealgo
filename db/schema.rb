@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808153737) do
+ActiveRecord::Schema.define(:version => 20120810211620) do
 
   create_table "credit_card_types", :force => true do |t|
     t.string   "card_type"
@@ -80,11 +80,13 @@ ActiveRecord::Schema.define(:version => 20120808153737) do
     t.datetime "purchased_at"
     t.integer  "deal_id"
     t.integer  "purchaser_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "purchase_code"
   end
 
   add_index "purchases", ["deal_id"], :name => "index_purchases_on_deal_id"
+  add_index "purchases", ["purchase_code"], :name => "index_purchases_on_purchase_code"
   add_index "purchases", ["purchaser_id"], :name => "index_purchases_on_purchaser_id"
 
 end

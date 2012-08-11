@@ -39,13 +39,22 @@ class PagesController < ApplicationController
 			end
 		end
 
-		@purchase = @deal.create_purchase(@purchaser, Integer(params[:quantity]))
+
+		@purchase = Purchase.new(purchaser_id: @purchaser.id,
+								 quantity: Integer(params[:quantity]),
+								 purchased_at: DateTime.now,
+								 deal_id: @deal.id)
 		if @purchase.valid?
 			@purchase.save
+		else
+			@purchase.errors.full_messages.each do |msg|
+				@errors << msg
+			end
 		end
 
+
 		if @errors.count == 0
-			redirect_to "/confirmation/#{@purchase.id}"
+			redirect_to "/confirmation/#{@purchase.purchase_code}"
 		else
 			@purchaser.delete
 			@payment_info.delete
@@ -55,7 +64,7 @@ class PagesController < ApplicationController
 	end
 
 	def confirmation
-		@purchase = Purchase.find(params[:id])
+		@purchase = Purchase.find_by_purchase_code(params[:id])
 		@deal = @purchase.deal
 	end
 end
