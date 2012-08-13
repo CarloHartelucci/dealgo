@@ -8,8 +8,8 @@
 
 Merchant.delete_all
 db =
-	Merchant.create!(name:"Dirty Bird",
-					 website:"http://dirtybirdnyc",
+	Merchant.create!(name:"Dirty Bird To Go",
+					 website:"http://dirtybirdnyc.com",
 					 twitter:"@dirtybirdtogo",
 					 facebook:"https://www.facebook.com/pages/Dirty-Bird-to-go/122190816732")
 
@@ -19,8 +19,8 @@ deal =
 				 :dealend => DateTime.now + 7, 
 				 :maxquantity => 100, 
 				 :base_price => 25,
-				 :name => "Customer Referral Program",
-				 :description => "Purchase $25 dollars at a discount up to 15% off. The more vouchers sold the deeper the discount",
+				 :name => "September 2012 Referral Program",
+				 :description => "Dirty Bird is selling $25 gift cards up to a 15% discount.  The more gift cards we sell the bigger discount you receive.",
 				 :merchant_id => db.id)
 
 DealThreshold.delete_all

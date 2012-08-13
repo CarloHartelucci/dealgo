@@ -9,4 +9,6 @@ class DealThreshold < ActiveRecord::Base
   def discount_price
   	return (100 - Float(self.discount))/100 * self.deal.base_price
   end
+
+  default_scope :order => "deal_thresholds.quantity ASC"
 end
