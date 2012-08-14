@@ -12,54 +12,14 @@ class PagesController < ApplicationController
 	def submit
 		logger = Logger.new STDOUT
 
-		@errors = []
 		@card_types = CreditCardType.all
 		@deal = Deal.find(params[:id])
-		@purchaser = Purchaser.new(firstname: params[:first_name],
-								   lastname: params[:last_name],
-								   email: params[:email],
-								   phone: params[:phone])
-		if @purchaser.valid?
-			@purchaser.save
-		else
-			@purchaser.errors.full_messages.each do |msg|
-				@errors << msg
-			end
-		end
-
-		@payment_info = PaymentInfo.new(purchaser_id: @purchaser.id,
-									   card_number: params[:card_number],
-									   card_type: params[:card_type],
-									   expiration_month: params[:expiration_month],
-									   expiration_year: params[:expiration_year])
-		if @payment_info.valid?
-			@payment_info.save
-		else
-			@payment_info.errors.full_messages.each do |msg|
-				@errors << msg
-			end
-		end
-
-
-		@purchase = Purchase.new(purchaser_id: @purchaser.id,
-								 quantity: Integer(params[:quantity]),
-								 purchased_at: DateTime.now,
-								 deal_id: @deal.id)
-		if @purchase.valid?
-			@purchase.save
-		else
-			@purchase.errors.full_messages.each do |msg|
-				@errors << msg
-			end
-		end
-
+		
+		@errors, purchase_code = @deal.create_purchase params
 
 		if @errors.count == 0
-			redirect_to "/confirmation/#{@purchase.purchase_code}"
+			redirect_to "/confirmation/#{purchase_code}"
 		else
-			@purchaser.delete
-			@payment_info.delete
-			@purchase.delete
 			render 'purchase'
 		end
 	end
