@@ -1,57 +1,51 @@
-<div class="container">
-	
-	<div class="span6 offset2" style="border:5px solid;border-radius:10px;border-color:#F96311;padding:10px">
-		<div class="row-fluid">
-			<form class="form-inline" accept-charset="UTF-8" action="/purchase/<%= @deal.id %>" method="post">
-				<h3>Contact Information</h3>
-				<label class="span12">First Name
-					<input type="text" placeholder="First Name" id="first_name" name="first_name">
-				</label>
+<%= render 'shared/error_messages', errors:@errors %>
+<div class="row-fluid">
+	<form class="form-inline" accept-charset="UTF-8" action="/purchase/<%= @deal.id %>" method="post">
+		<h3>Contact Information</h3>
+		<label class="span12">First Name
+			<input type="text" placeholder="First Name" id="first_name" name="first_name">
+		</label>
 
-				<label class="span12">Last Name
-					<input type="text" placeholder="Last Name" id="last_name" name="last_name">
-				</label>
-				
-				<label class="span12">Email Address
-					<input type="email" placeholder="Email Address" id="email" name="email">
-				</label>
+		<label class="span12">Last Name
+			<input type="text" placeholder="Last Name" id="last_name" name="last_name">
+		</label>
+		
+		<label class="span12">Email Address
+			<input type="email" placeholder="Email Address" id="email" name="email">
+		</label>
 
-				<label class="span12">Phone Number
-					<input type="tel" placeholder="Phone Number" id="phone" name="phone">
-				</label>
-					
-				<h3>Payment Information</h3>
-				<label class="span12">Card Number
-					<input type="text" placeholder="Card Number" id="card_number" name="card_number">
-				</label>
+		<label class="span12">Phone Number
+			<input type="tel" placeholder="Phone Number" id="phone" name="phone">
+		</label>
+			
+		<h3>Payment Information</h3>
+		<label class="span12">Card Number
+			<input type="text" placeholder="Card Number" id="card_number" name="card_number">
+		</label>
 
-				<label class="span12">Card Type
-					<select name="card_type" id="card_type">
-						<%= @card_types.each do |t| %>
-							<option value="<%= t.card_type %>"><%= t.card_description %></option>
-						<% end %>
-					</select>
-				</label>
+		<label class="span12">Card Type
+			<select name="card_type" id="card_type">
+				<%= @card_types.each do |t| %>
+					<option value="<%= t.card_type %>"><%= t.card_description %></option>
+				<% end %>
+			</select>
+		</label>
 
-				<label class="span12">Card Expiration
-					<input id="expiration_month" name="expiration_month" min="1" max="12" type="number" value="1">
-					<input id="expiration_year" name="expiration_year" min="<%= DateTime.now.year %>" max="<%= DateTime.now.year %> + 20" type="number" value="<%= DateTime.now.year %>">
-				</label>
+		<label class="span12">Card Expiration
+			<input id="expiration_month" name="expiration_month" min="1" max="12" type="number" value="1">
+			<input id="expiration_year" name="expiration_year" min="<%= DateTime.now.year %>" max="<%= DateTime.now.year %> + 20" type="number" value="<%= DateTime.now.year %>">
+		</label>
 
-				<label class="span12">Quantity
-					<input type="number" id="quantity" name="quantity" min="1" max="<%= @deal.available_quantity%>" value="1">
-				</label>
+		<label class="span12">Quantity
+			<input type="number" id="quantity" name="quantity" min="1" max="<%= @deal.available_quantity%>" value="1">
+		</label>
 
-				<label class="checkbox">
-					<input type="checkbox" id="notification_optin" name="notification_optin">Notify me of similar deals from other great merchants!
-				</label>
+		<label class="checkbox">
+			<input type="checkbox" id="notification_optin" name="notification_optin">Notify me of similar deals from other great merchants!
+		</label>
 
-				<button type="submit" class="offset2 btn btn-large btn-success">Purchase!</button>
-				
-			</form>
-			<h3>Want more great deals form <%= @deal.merchant.name %>? </h3>
-			<%= render 'follow_and_like' %>
-
-		</div>
-	</div>
+		<button type="submit" class="offset2 btn btn-large btn-success">Purchase!</button>
+		
+	</form>
+	<%= render 'follow_and_like' %>
 </div>
