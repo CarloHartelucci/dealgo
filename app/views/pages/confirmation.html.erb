@@ -1,13 +1,10 @@
-<div class="container">
-	<div class="span6 offset3">
-		<p>Purchase Accepted!</p>
-		<p>Name:  <%= @purchase.purchaser.firstname %> <%= @purchase.purchaser.lastname %> </p>
-		<p>Email: <%= @purchase.purchaser.email %>	Phone:	<%= @purchase.purchaser.phone %> </p>
-		<p>Quantity Purchased: <%= @purchase.quantity %></p>
-		<p>Credit Card: <%= @purchase.purchaser.payment_info.card_number %>   Expiration: <% @purchase.purchaser.payment_info.expiration_month %>/<%= @purchase.purchaser.payment_info.expiration_year %> </p>
-		<p>You will receive an email confirmation and your credit card will be charged once the deal closes.  Please contact us at 'support email here' if you have any questions in the meantime.</p>
 
-		<hr>
-		<%= render 'follow_and_like' %>
-	</div>
-</div>
+<h3>Purchase Accepted!</h3>
+<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Name:</span>  <%= @purchase.purchaser.firstname %> <%= @purchase.purchaser.lastname %> </p>
+<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Email: </span> <%= @purchase.purchaser.email %>	</p>
+<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Phone: </span>	<%= @purchase.purchaser.phone %> </p>
+<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Quantity:</span> <%= @purchase.quantity %></p>
+<p>You will receive an email confirmation and your credit card will be charged once the deal closes.  Please contact us at <a href="<%= @deal.merchant.support_email %>"><%= @deal.merchant.support_email %></a> if you have any questions in the meantime.</p>
+
+<h5>Follow or Like to learn about more deals from <%= @deal.merchant.name %></h5>
+<%= render 'follow_and_like' %>

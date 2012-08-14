@@ -1,5 +1,5 @@
 class Merchant < ActiveRecord::Base
-  attr_accessible :facebook, :name, :twitter, :website
+  attr_accessible :facebook, :name, :twitter, :website, :support_email
   has_many :deals
 
   validates :facebook, presence: true,
@@ -11,5 +11,7 @@ class Merchant < ActiveRecord::Base
   				   uniqueness: true
   validates :website, presence: true,
   				   length: { maximum: 200 }
+  validates :support_email, presence: true,
+             length: { maximum: 50 }
   				   
 end
