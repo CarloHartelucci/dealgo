@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 	def purchase
 		@deal = Deal.find(params[:id])
 		@card_types = CreditCardType.all
+		@url = params[:url]
 	end
 
 	def submit
