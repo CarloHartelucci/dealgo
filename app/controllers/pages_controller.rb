@@ -1,10 +1,16 @@
 class PagesController < ApplicationController
+	
+	def home
+		merchant_code = Merchant.first.merchant_code
+		redirect_to "/#{merchant_code}"
+	end
+
 	def deal
-		@deal = Deal.first
+		@deal = Merchant.find_by_merchant_code(params[:merchant_code]).deals.first
 	end
 
 	def purchase
-		@deal = Deal.find(params[:id])
+		@deal = Merchant.find_by_merchant_code(params[:merchant_code]).deals.first
 		@card_types = CreditCardType.all
 		@url = params[:url]
 	end
@@ -13,19 +19,19 @@ class PagesController < ApplicationController
 		logger = Logger.new STDOUT
 
 		@card_types = CreditCardType.all
-		@deal = Deal.find(params[:id])
+		@deal = Merchant.find_by_merchant_code(params[:merchant_code]).deals.first
 		
 		@errors, purchase_code = @deal.create_purchase params
 
 		if @errors.count == 0
-			redirect_to "/confirmation/#{purchase_code}"
+			redirect_to "/#{params[:merchant_code]}/#{purchase_code}"
 		else
 			render 'purchase'
 		end
 	end
 
 	def confirmation
-		@purchase = Purchase.find_by_purchase_code(params[:id])
-		@deal = @purchase.deal
+		@purchase = Purchase.find_by_purchase_code(params[:purchase_code])
+		@deal = Merchant.find_by_merchant_code(params[:merchant_code]).deals.first
 	end
 end

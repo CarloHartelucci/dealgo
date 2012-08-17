@@ -12,7 +12,7 @@ db =
 					 website:"http://dirtybirdnyc.com",
 					 twitter:"@dirtybirdtogo",
 					 facebook:"https://www.facebook.com/pages/Dirty-Bird-to-go/122190816732",
-					 support_email:"mailto:dirtybirdtogo@dirtybirdtogo.com")
+					 support_email:"dirtybirdtogo@dirtybirdtogo.com")
 
 Deal.delete_all
 deal =

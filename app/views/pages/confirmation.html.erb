@@ -4,7 +4,7 @@
 <p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Email: </span> <%= @purchase.purchaser.email %>	</p>
 <p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Phone: </span>	<%= @purchase.purchaser.phone %> </p>
 <p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Quantity:</span> <%= @purchase.quantity %></p>
-<p>You will receive an email confirmation and your credit card will be charged once the deal closes.  Please contact us at <a href="<%= @deal.merchant.support_email %>"><%= @deal.merchant.support_email %></a> if you have any questions in the meantime.</p>
+<p>You will receive an email confirmation and your credit card will be charged once the deal closes.  Please contact us at <a href="mailto:<%= @deal.merchant.support_email %>"><%= @deal.merchant.support_email %></a> if you have any questions in the meantime.</p>
 
 <h5>Follow or Like to learn about more deals from <%= @deal.merchant.name %></h5>
 <%= render 'follow_and_like' %>

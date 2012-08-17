@@ -1,8 +1,9 @@
 DealGo::Application.routes.draw do
-  root :to => "pages#deal" 
-  get "purchase/:id" => "pages#purchase"
-  post "purchase/:id" => "pages#submit"
-  match 'confirmation/:id' => "pages#confirmation"
+  root :to => "pages#home"
+  get ":merchant_code" => "pages#deal"
+  get ":merchant_code/purchase" => "pages#purchase"
+  post ":merchant_code/purchase" => "pages#submit"
+  match ':merchant_code/:purchase_code' => "pages#confirmation"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

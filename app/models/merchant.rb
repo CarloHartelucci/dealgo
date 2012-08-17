@@ -1,6 +1,7 @@
 class Merchant < ActiveRecord::Base
-  attr_accessible :facebook, :name, :twitter, :website, :support_email
+  attr_accessible :facebook, :name, :twitter, :website, :support_email, :merchant_code
   has_many :deals
+  before_create :before_create
 
   validates :facebook, presence: true,
   					   length: { maximum: 200 }
@@ -13,5 +14,10 @@ class Merchant < ActiveRecord::Base
   				   length: { maximum: 200 }
   validates :support_email, presence: true,
              length: { maximum: 50 }
+
+  protected
+    def before_create
+      self.merchant_code = self.name.downcase.gsub(" ", "_")
+    end
   				   
 end
