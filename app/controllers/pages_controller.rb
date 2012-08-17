@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	def home
+	def deal
 		@deal = Deal.first
 	end
 

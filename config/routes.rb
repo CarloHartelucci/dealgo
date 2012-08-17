@@ -1,5 +1,5 @@
 DealGo::Application.routes.draw do
-  root :to => "pages#home" 
+  root :to => "pages#deal" 
   get "purchase/:id" => "pages#purchase"
   post "purchase/:id" => "pages#submit"
   match 'confirmation/:id' => "pages#confirmation"
