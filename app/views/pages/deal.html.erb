@@ -28,12 +28,12 @@
 		<div style="text-align:center;border: 2px solid;border-radius:10px;border-color:#C4E243;margin-right:15px;" class="span5">
 			<p><h3>Current Discount</h3></p>
 			<p style="font-size: 30px;font-weight:bold"><%= @deal.deal_thresholds.first.discount %>%</p>
-			<p>Guaranteed!</p>
+			<p>Guaranteed</p>
 		</div>
 		<div style="text-align:center;border: 2px solid;border-radius:10px;border-color:#C4E243;margin-right:15px;" class="span5">
 			<p><h3>Best Discount</h3></p>
 			<p style="font-size: 30px;font-weight:bold"><%= @deal.deal_thresholds.last.discount %>%</p>
-			<p>Only <%= @deal.deal_thresholds.last.quantity - @deal.quantity_sold %> to go!</p>
+			<p>Only <%= @deal.deal_thresholds.last.quantity - @deal.quantity_sold %> to go</p>
 		</div>
 	</div>
 </div>
