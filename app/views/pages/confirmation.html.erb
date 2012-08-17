@@ -1,9 +1,9 @@
 
 <h3>Purchase Accepted!</h3>
-<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Name:</span>  <%= @purchase.purchaser.firstname %> <%= @purchase.purchaser.lastname %> </p>
-<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Email: </span> <%= @purchase.purchaser.email %>	</p>
-<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Phone: </span>	<%= @purchase.purchaser.phone %> </p>
-<p><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Quantity:</span> <%= @purchase.quantity %></p>
+<p><strong>Name: </strong>  <%= @purchase.purchaser.firstname %> <%= @purchase.purchaser.lastname %> </p>
+<p><strong>Email: </strong> <%= @purchase.purchaser.email %>	</p>
+<p><strong>Phone: </strong>	<%= @purchase.purchaser.phone %> </p>
+<p><strong>Quantity:</strong> <%= @purchase.quantity %></p>
 <p>You will receive an email confirmation and your credit card will be charged once the deal closes.  Please contact us at <a href="mailto:<%= @deal.merchant.support_email %>"><%= @deal.merchant.support_email %></a> if you have any questions in the meantime.</p>
 
 <h5>Follow or Like to learn about more deals from <%= @deal.merchant.name %></h5>
