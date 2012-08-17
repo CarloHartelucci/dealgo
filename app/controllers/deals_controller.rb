@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class DealsController < ApplicationController
 	
 	def home
 		merchant_code = Merchant.first.merchant_code
