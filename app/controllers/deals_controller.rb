@@ -1,5 +1,5 @@
 class DealsController < ApplicationController
-	
+
 	def home
 		merchant_code = Merchant.first.merchant_code
 		redirect_to "/#{merchant_code}"

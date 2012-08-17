@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DealGo</title>
+     <%= stylesheet_link_tag    "application", :media => "all" %>
+     <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+  </head>
+  <body>
+      <div class="span4 offset4">
+        <h1>Sign in</h1>
+        <%= form_for(:session, url: sessions_path) do |f| %>
+
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password %> 
+
+          <%= f.label "" %>
+          <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+        <% end %>
+
+      </div>
+    </body>
+</html>

@@ -47,3 +47,12 @@ CreditCardType.delete_all
 CreditCardType.create!(card_type:"VISA", card_description:"Visa")
 CreditCardType.create!(card_type:"MC", card_description:"MasterCard")
 CreditCardType.create!(card_type:"AMEX", card_description:"American Express")
+
+User.create(:email => "dirtybirdgroup@gmail.com", 
+	        :name => "Joe Ciriello", 
+	        :password => "letmein", 
+	        :password_confirmation => "letmein")
+User.create(:email => "charliehartel@yahoo.com", 
+	        :name => "Charlie Hartel", 
+	        :password => "letmein", 
+	        :password_confirmation => "letmein")
