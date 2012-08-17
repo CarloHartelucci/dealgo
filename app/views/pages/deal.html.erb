@@ -24,17 +24,17 @@
 	</div>
 </div>
 <div class="row-fluid">
-	<table class="table" style="margin-bottom:5px;">
-		<tbody>
-			<tr>
-				<td><span style="margin-left:5px;font-size: 13px;color: #999;text-transform: uppercase;font-weight:bold">Sold: </span><span><%= @deal.quantity_sold %></span></td>
-				<td><span style="font-size: 14px;color: #999;text-transform: uppercase;font-weight:bold">Remaining: </span><span><%= @deal.maxquantity - @deal.quantity_sold %></span></td>
-				<td><span style="font-size: 14px;color: #999;text-transform: uppercase;font-weight:bold">Current Discount: </span><span><%= @deal.current_discount %>%</span></td>
-			</tr>
-		</tbody>
-	</table>
-	<div class="progress">
-		<div class="bar" style="width:<%= 100 * @deal.quantity_sold / @deal.maxquantity %>%;"></div>
+	<div class="span12">
+		<div style="text-align:center;border: 2px solid;border-radius:10px;border-color:#C4E243;margin-right:15px;" class="span5">
+			<p><h3>Current Discount</h3></p>
+			<p style="font-size: 30px;font-weight:bold"><%= @deal.deal_thresholds.first.discount %>%</p>
+			<p>Guaranteed!</p>
+		</div>
+		<div style="text-align:center;border: 2px solid;border-radius:10px;border-color:#C4E243;margin-right:15px;" class="span5">
+			<p><h3>Best Discount</h3></p>
+			<p style="font-size: 30px;font-weight:bold"><%= @deal.deal_thresholds.last.discount %>%</p>
+			<p>Only <%= @deal.deal_thresholds.last.quantity - @deal.quantity_sold %> to go!</p>
+		</div>
 	</div>
 </div>
 <div class="row-fluid">
