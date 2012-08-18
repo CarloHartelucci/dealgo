@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120818032940) do
+ActiveRecord::Schema.define(:version => 20120818183720) do
+
+  create_table "admin_users", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "credit_card_types", :force => true do |t|
     t.string   "card_type"
@@ -104,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20120818032940) do
     t.datetime "updated_at",            :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "type"
   end
 
 end

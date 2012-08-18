@@ -80,7 +80,8 @@ CreditCardType.create!(card_type:"VISA", card_description:"Visa")
 CreditCardType.create!(card_type:"MC", card_description:"MasterCard")
 CreditCardType.create!(card_type:"AMEX", card_description:"American Express")
 
-User.create(:email => "test1@yahoo.com", 
-	        :name => "Test One", 
+User.delete_all
+AdminUser.create(:email => "admin1@yahoo.com", 
+	        :name => "Admin One", 
 	        :password => "letmein", 
 	        :password_confirmation => "letmein")

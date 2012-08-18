@@ -2,7 +2,7 @@ class AdminController < ActionController::Base
 	protect_from_forgery
     include SessionsHelper
 	
-	before_filter :signed_in_user, only: :purchases
+	before_filter :signed_in_admin
 	
 	def deals
 		@active = "deals"
@@ -21,10 +21,13 @@ class AdminController < ActionController::Base
 	end
 
 	protected
-	    def signed_in_user
-	      unless signed_in?
-	        store_location
-	        redirect_to '/admin', notice: "Please sign in." unless signed_in?
+	    def signed_in_admin
+	      if !signed_in? 
+        	store_location
+        	redirect_to '/admin', notice: "Please sign in."
+	      end
+	      if !admin?
+	      	redirect_to '/404'
 	      end
 	    end
 end

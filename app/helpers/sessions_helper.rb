@@ -13,6 +13,10 @@ module SessionsHelper
   	!self.current_user.nil?
   end
 
+  def admin?
+    self.current_user.type == "AdminUser"
+  end
+
   def current_user=(user)
   	@current_user = user
   end
