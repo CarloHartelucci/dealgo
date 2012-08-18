@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817203336) do
+ActiveRecord::Schema.define(:version => 20120818032940) do
 
   create_table "credit_card_types", :force => true do |t|
     t.string   "card_type"
@@ -49,10 +49,12 @@ ActiveRecord::Schema.define(:version => 20120817203336) do
     t.string   "website"
     t.string   "twitter"
     t.string   "facebook"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "support_email"
     t.string   "merchant_code"
+    t.string   "primary_color"
+    t.string   "secondary_color"
   end
 
   add_index "merchants", ["merchant_code"], :name => "index_merchants_on_merchant_code"
