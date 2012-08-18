@@ -14,17 +14,7 @@
 <div class="row-fluid">
 	<div class="span3">
 		<h3>Deals</h3>
-		<ul class="nav nav-tabs nav-stacked">
-			<% @merchant.deals.each do |d| %>
-				<li>
-					<a href="/admin/deals/<%= d.id %>">
-						<div>
-							<%= d.merchant.name %>
-						</div>
-					</a>
-				</li>
-			<% end %>
-		</ul>
+		<%= render 'shared/deal_list_nav', deals:@merchant.deals %>
 	</div>
 	<div class="span9">
 		<h3>Deal Summary</h3>

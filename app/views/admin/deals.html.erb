@@ -1,13 +1,10 @@
 <div class="row-fluid">
 	<div class="span3">
 		<h3>Active Deals</h3>
-		<ul class="nav nav-tabs nav-stacked">
+		<%= render 'shared/deal_list_nav', deals:@deals %>
+		<!--ul class="nav nav-tabs nav-stacked">
 			<% @deals.each do |d| %>
-				<% if @active_deal.id == d.id %>
-				<li class="active">
-				<% else %>
 				<li>
-				<% end %>
 					<a href="/admin/deals/<%= d.id %>">
 						<div>
 							<%= d.merchant.name %>
@@ -16,6 +13,7 @@
 				</li>
 			<% end %>
 		</ul>
+		-->
 	</div>
 	<div class="span8">	
 		<h3>Deal Summary</h3>

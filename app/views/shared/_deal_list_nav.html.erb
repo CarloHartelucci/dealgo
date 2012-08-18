@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs nav-stacked">
+	<% deals.each do |d| %>
+		<li>
+			<a href="/admin/deals/<%= d.id %>">
+				<div>
+					<%= d.merchant.name %>
+				</div>
+			</a>
+		</li>
+	<% end %>
+</ul>

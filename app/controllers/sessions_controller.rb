@@ -16,12 +16,12 @@ class SessionsController < ActionController::Base
       end
   	else
   	  flash[:error] = 'Invalid email/password combination' # Not quite right!
-      render 'new'
+      redirect_to '/signin'
   	end
   end
 
   def destroy
   	sign_out
-  	redirect_to '/admin'
+  	redirect_to root_path
   end
 end
