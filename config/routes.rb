@@ -1,7 +1,8 @@
 DealGo::Application.routes.draw do
   root :to => "deals#home"
   get "admin" => "sessions#new"
-  get "/admin/purchases" => "admin#purchases"
+  get "/admin/deals" => "admin#deals"
+  get "/admin/deals/:id" => "admin#deals"
   get "/admin/merchants" => "admin#merchants"
   match "signout", to: 'sessions#destroy', via: :delete
   resources :merchants

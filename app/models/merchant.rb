@@ -36,7 +36,8 @@ class Merchant < ActiveRecord::Base
 
   protected
     def before_create
-      self.merchant_code = self.name.downcase.gsub(" ", "_")
+      self.merchant_code = self.name.downcase.gsub(" ", "-")
+      self.twitter = "@" << self.twitter
     end
   				   
 end

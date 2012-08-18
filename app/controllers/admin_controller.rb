@@ -4,9 +4,15 @@ class AdminController < ActionController::Base
 	
 	before_filter :signed_in_user, only: :purchases
 	
-	def purchases
-		@active = "purchases"
-		@purchases = Deal.first.purchases
+	def deals
+		@active = "deals"
+		@deals = Deal.all
+		if params[:id].nil?
+			redirect_to "/admin/deals/#{@deals.first.id}"
+		else
+			@active_deal = Deal.find(params[:id])
+			@purchases = @active_deal.purchases
+		end
 	end
 
 	def merchants

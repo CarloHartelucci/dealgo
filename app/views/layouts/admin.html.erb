@@ -9,7 +9,7 @@
 <body>
 	<div class="navbar">
 		<div class="navbar-inner">
-			<div class="container">
+			<div class="container-fluid">
 				<ul class="nav">
 				  	<% if @active=="merchants" %>
 				  	<li class="active">
@@ -18,12 +18,12 @@
 				  	<% end %>
 				  	<a href="/admin/merchants">Merchants</a>
 				  </li>
-				  	<% if @active=="purchases" %>
+				  	<% if @active=="deals" %>
 				  	<li class="active">
 				  	<% else %>
 				   	<li>
 				  	<% end %>
-				    <a href="/admin/purchases">Purchases</a>
+				    <a href="/admin/deals">Deals</a>
 				  </li>
 				  <li class="dropdown">
 				    <a href="#"
@@ -42,6 +42,10 @@
 			</div>
 		</div>
 	</div>
-	<%= yield %>
+	<div class="container-fluid">
+		<div class="row-fluid">
+		<%= yield %>
+		</div>
+	</div>
 </body>
 </html>
