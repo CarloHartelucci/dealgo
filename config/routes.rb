@@ -1,6 +1,6 @@
 DealGo::Application.routes.draw do
   root :to => "deals#home"
-  get "admin" => "sessions#new"
+  get "/signin" => "sessions#new"
   get "/admin/deals" => "admin#deals"
   get "/admin/deals/:id" => "admin#deals"
   get "/admin/merchants" => "admin#merchants"

@@ -14,7 +14,8 @@ db =
 					 facebook:"https://www.facebook.com/pages/Dirty-Bird-to-go/122190816732",
 					 support_email:"dirtybirdtogo@dirtybirdtogo.com",
 					 primary_color: "#F96311",
-					 secondary_color: "#C4E243")
+					 secondary_color: "#C4E243",
+					 logo:"/assets/dirtybird.png")
 porchetta =
 	Merchant.create!(name:"Porchetta",
 					 website:"http://porchetta.com",

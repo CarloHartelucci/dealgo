@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120818183720) do
+ActiveRecord::Schema.define(:version => 20120818195138) do
 
   create_table "admin_users", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -49,6 +49,11 @@ ActiveRecord::Schema.define(:version => 20120818183720) do
 
   add_index "deals", ["merchant_id"], :name => "index_deals_on_merchant_id"
 
+  create_table "merchant_users", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "merchants", :force => true do |t|
     t.string   "name"
     t.string   "website"
@@ -60,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120818183720) do
     t.string   "merchant_code"
     t.string   "primary_color"
     t.string   "secondary_color"
+    t.string   "logo"
   end
 
   add_index "merchants", ["merchant_code"], :name => "index_merchants_on_merchant_code"
@@ -110,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20120818183720) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "type"
+    t.integer  "merchant_id"
   end
 
 end

@@ -1,6 +1,7 @@
 class Merchant < ActiveRecord::Base
-  attr_accessible :facebook, :name, :twitter, :website, :support_email, :merchant_code, :primary_color, :secondary_color
+  attr_accessible :facebook, :name, :twitter, :website, :support_email, :merchant_code, :primary_color, :secondary_color, :logo
   has_many :deals
+  has_many :merchant_users
   before_create :before_create
 
   PRIMARY_COLOR = "blue"
