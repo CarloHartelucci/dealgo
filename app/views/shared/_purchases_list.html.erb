@@ -1,0 +1,28 @@
+<div class="row-fluid">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Quantity</th>
+			<th>Card Type</th>
+			<th>Card Number</th>
+			<th>Expiration</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% purchases.each do |p| %>
+			<tr>
+				<td><%= p.purchaser.firstname %> <%= p.purchaser.lastname %></p></td>
+				<td><%= p.purchaser.email %></td>
+				<td><%= p.purchaser.phone %></td>
+				<td><%= p.quantity %></td>
+				<td><%= p.purchaser.payment_info.card_type %></td>
+				<td><%= p.purchaser.payment_info.card_number %></td>
+				<td><%= p.purchaser.payment_info.expiration_month %>/<%=p.purchaser.payment_info.expiration_year %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
