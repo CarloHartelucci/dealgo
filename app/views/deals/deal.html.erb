@@ -42,13 +42,13 @@
 	<% @deal.deal_thresholds.each do |d| %>
 	<p>
 		<% if d != @deal.deal_thresholds.first %>
-		If we sell <strong><%= previous_threshold.quantity %> - <%= d.quantity - 1 %></strong> gift cards the discount is <strong><%= previous_threshold.discount %>% off</strong> and you pay <strong>$<%= previous_threshold.discount_price %></strong>
+		If we sell <strong><%= previous_threshold.quantity %> - <%= d.quantity - 1 %></strong> gift cards the discount is <strong><%= previous_threshold.discount %>% off</strong> and you pay <strong>$<%= "%.2f" % previous_threshold.discount_price  %></strong>
 		<% end %>
 		<% previous_threshold = d %>
 	</p>
 	<% end %>
 	<p>
-		If we sell <strong><%= @deal.deal_thresholds.last.quantity %></strong> gift cards the discount is <strong><%= @deal.deal_thresholds.last.discount %>% off</strong> and you pay <strong>$<%= @deal.deal_thresholds.last.discount_price %></strong>
+		If we sell <strong><%= @deal.deal_thresholds.last.quantity %></strong> gift cards the discount is <strong><%= @deal.deal_thresholds.last.discount %>% off</strong> and you pay <strong>$<%= "%.2f" % @deal.deal_thresholds.last.discount_price %></strong>
 	</p>
 </div>
 <br>
