@@ -2,14 +2,14 @@ DealGo::Application.routes.draw do
   root :to => "deals#home"
   get "admin" => "sessions#new"
   get "/admin/purchases" => "admin#purchases"
+  match "signout", to: 'sessions#destroy', via: :delete
 
   get ":merchant_code" => "deals#deal"
   get ":merchant_code/purchase" => "deals#purchase"
   post ":merchant_code/purchase" => "deals#submit"
-  match ':merchant_code/:purchase_code' => "deals#confirmation"
+  match ":merchant_code/:purchase_code" => "deals#confirmation"
 
   resources :sessions, only: [:new, :create, :destroy]
-  match '/signout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
