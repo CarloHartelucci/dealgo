@@ -1,7 +1,7 @@
 <div class="row-fluid">		
 	<div class="span4">
 		<a href="<%= @deal.merchant.website %>">
-			<img src="assets/dirtybird.png"/>
+			<img src="/assets/dirtybird.png"/>
 		</a>
 	</div>
 	<div class="span8">
@@ -54,7 +54,7 @@
 <br>
 <div class="row-fluid">
 	<div class="offset2">
-		<a href="/<%= @deal.merchant.merchant_code %>/purchase" class="btn btn-large btn-primary btn-success">Purchase!</a>
+		<a href="/deals/<%= @deal.merchant.merchant_code %>/purchase" class="btn btn-large btn-primary btn-success">Purchase!</a>
 	</div>
 	<br>
 	<div class="offset1">

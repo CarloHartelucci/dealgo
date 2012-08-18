@@ -10,8 +10,19 @@
 	<div class="navbar">
 		<div class="navbar-inner">
 			<div class="container">
-				<ul class="nav pull">
-				  <li class="active">
+				<ul class="nav">
+				  	<% if @active=="merchants" %>
+				  	<li class="active">
+				  	<% else %>
+				   	<li>
+				  	<% end %>
+				  	<a href="/admin/merchants">Merchants</a>
+				  </li>
+				  	<% if @active=="purchases" %>
+				  	<li class="active">
+				  	<% else %>
+				   	<li>
+				  	<% end %>
 				    <a href="/admin/purchases">Purchases</a>
 				  </li>
 				  <li class="dropdown">

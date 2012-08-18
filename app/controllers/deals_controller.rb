@@ -1,8 +1,10 @@
-class DealsController < ApplicationController
+class DealsController < ActionController::Base
+	protect_from_forgery
+    include SessionsHelper
 
 	def home
 		merchant_code = Merchant.first.merchant_code
-		redirect_to "/#{merchant_code}"
+		redirect_to "/deals/#{merchant_code}"
 	end
 
 	def deal
@@ -24,7 +26,7 @@ class DealsController < ApplicationController
 		@errors, purchase_code = @deal.create_purchase params
 
 		if @errors.count == 0
-			redirect_to "/#{params[:merchant_code]}/#{purchase_code}"
+			redirect_to "/deals/#{params[:merchant_code]}/#{purchase_code}"
 		else
 			render 'purchase'
 		end

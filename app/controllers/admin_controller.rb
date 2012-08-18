@@ -5,9 +5,15 @@ class AdminController < ActionController::Base
 	before_filter :signed_in_user, only: :purchases
 	
 	def purchases
+		@active = "purchases"
 		@purchases = Deal.first.purchases
 	end
-	
+
+	def merchants
+		@active = "merchants"
+		@merchants = Merchant.all
+	end
+
 	protected
 	    def signed_in_user
 	      unless signed_in?

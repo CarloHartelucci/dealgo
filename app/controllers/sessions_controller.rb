@@ -8,7 +8,7 @@ class SessionsController < ActionController::Base
   	if user && user.authenticate(params[:session][:password])
   	  sign_in user
   	  flash[:success] = "Welcome to DealGo"
-  	  redirect_to '/admin/purchases'
+  	  redirect_to '/admin/merchants'
   	else
   	  flash[:error] = 'Invalid email/password combination' # Not quite right!
       render 'new'

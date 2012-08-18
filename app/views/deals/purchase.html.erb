@@ -1,7 +1,7 @@
 <%= render 'shared/error_messages', errors:@errors %>
 <div class="row-fluid">
 	<div class="span12">
-		<form class="form-inline" accept-charset="UTF-8" action="/<%= @deal.merchant.merchant_code %>/purchase" method="post">
+		<form class="form-inline" accept-charset="UTF-8" action="/deals/<%= @deal.merchant.merchant_code %>/purchase" method="post">
 			<h3>Contact Information</h3>
 			<label class="span12">First Name
 				<input type="text" placeholder="First Name" id="first_name" name="first_name">

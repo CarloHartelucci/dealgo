@@ -1,0 +1,24 @@
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Website</th>
+			<th>Facebook</th>
+			<th>Twitter</th>
+			<th>Support Email</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @merchants.each do |m| %>
+			<tr>
+				<td><%= m.name %></p></td>
+				<td><%= m.website %></td>
+				<td><%= m.facebook %></td>
+				<td><%= m.twitter %></td>
+				<td><%= m.support_email %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+

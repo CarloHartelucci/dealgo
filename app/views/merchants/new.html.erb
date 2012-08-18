@@ -1,0 +1,48 @@
+<%= render 'shared/error_messages', errors:@errors %>
+<div class="row-fluid">
+	<div class="span12">
+		<form class="form-inline" accept-charset="UTF-8" action="/merchants" method="post">
+			
+			<h3>User Information</h3>
+			<label class="span12">Name
+				<input type="text" placeholder="Name" id="username" name="username">
+			</label>
+
+			<label class="span12">Email
+				<input type="text" placeholder="Email" id="email" name="email">
+			</label>
+			
+			<label class="span12">Password
+				<input type="password" placeholder="Password" id="password" name="password">
+			</label>
+
+			<label class="span12">Password Confirmation
+				<input type="password" placeholder="Password Confirmation" id="password_confirmation" name="password_confirmation">
+			</label>
+
+			<h3>Merchant Information</h3>
+			<label class="span12">Merchant Name
+				<input type="text" placeholder="Name" id="name" name="name">
+			</label>
+
+			<label class="span12">Website
+				<input type="text" placeholder="Website" id="website" name="website">
+			</label>
+			
+			<label class="span12">Facebook
+				<input type="text" placeholder="Facebook URL" id="facebook" name="facebook">
+			</label>
+
+			<label class="span12">Twitter
+				<input type="text" placeholder="Twitter ID" id="twitter" name="twitter">
+			</label>
+				
+			<label class="span12">Support Email Address
+				<input type="email" placeholder="Support Email Address" id="support_email" name="support_email">
+			</label>
+
+
+			<button type="submit" class="offset2 btn btn-large btn-success">Create Merchant</button>
+		</form>
+	</div>
+</div>
