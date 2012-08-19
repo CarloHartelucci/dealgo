@@ -1,6 +1,4 @@
-class DealsController < ActionController::Base
-	protect_from_forgery
-    include SessionsHelper
+class DealsController < ApplicationController
 
 	def home
 		merchant_code = Merchant.first.merchant_code

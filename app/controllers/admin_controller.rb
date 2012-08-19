@@ -1,6 +1,4 @@
-class AdminController < ActionController::Base
-	protect_from_forgery
-    include SessionsHelper
+class AdminController < ApplicationController
 	
 	before_filter :signed_in_admin
 	

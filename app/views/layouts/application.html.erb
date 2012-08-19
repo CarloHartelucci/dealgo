@@ -15,8 +15,20 @@
 	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=160212714066832";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<ul class="nav">
+				  	<%= yield :nav %>
+				</ul>
+			</div>
+		</div>
+	</div>
 	<div class="container-fluid">
+		<div class="row-fluid">
 		<%= yield %>
+		</div>
 	</div>
 
 </body>
