@@ -1,5 +1,6 @@
-class SessionsController < ActionController::Base
-  include SessionsHelper
+class SessionsController < ApplicationController
+  
+  
   def new
   end
 
