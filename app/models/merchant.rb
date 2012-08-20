@@ -37,6 +37,14 @@ class Merchant < ActiveRecord::Base
     end
   end
 
+  def current_deal?
+    true
+  end
+
+  def current_deal
+    self.deals.first
+  end
+
   protected
     def before_create
       self.merchant_code = self.name.downcase.gsub(" ", "-")

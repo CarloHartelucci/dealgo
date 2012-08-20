@@ -4,5 +4,10 @@
 	<%= render 'shared/merchant_badge', merchant: @merchant %>
 	</div>
 	<div class="span6">
+		<% if @merchant.current_deal? %>
+			<%= render "shared/deal_view", deal: @merchant.current_deal %>
+		<% else %>
 
+		<% end %>
 	</div>
+</div>
