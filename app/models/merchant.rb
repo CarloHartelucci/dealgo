@@ -1,5 +1,6 @@
 class Merchant < ActiveRecord::Base
-  attr_accessible :facebook, :name, :twitter, :website, :support_email, :merchant_code, :primary_color, :secondary_color, :logo
+  attr_accessible :facebook, :name, :twitter, :website, :support_email, :merchant_code, :primary_color, :secondary_color, :logo, :description
+  
   has_many :deals
   has_many :merchant_users
   before_create :before_create
@@ -8,7 +9,7 @@ class Merchant < ActiveRecord::Base
   SECONDARY_COLOR = "orange"
 
   validates :facebook, presence: true,
-  					   length: { maximum: 200 }
+  					   length: { maximum: 100 }
   validates :twitter, presence: true,
   					  length: { maximum: 50 }
   validates :name, presence: true,
@@ -18,6 +19,7 @@ class Merchant < ActiveRecord::Base
   				   length: { maximum: 200 }
   validates :support_email, presence: true,
              length: { maximum: 50 }
+  validates :description, length: { maximum: 500 }
 
   def get_primary_color
     if self.primary_color.nil?

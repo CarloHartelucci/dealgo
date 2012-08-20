@@ -1,16 +1,4 @@
 <%= render 'admin_nav' %>
-<div class="row-fluid well">
-	<div class="span2">
-		<img src="<%= @merchant.logo %>">
-	</div>
-	<div class="span10">
-		<h1><%= @merchant.name %></h1>
-		<p><strong>Website: </strong><%= @merchant.website %></p>
-		<p><strong>Facebook: </strong><%= @merchant.facebook %></p>
-		<p><strong>Twitter: </strong><%= @merchant.twitter %></p>
-		<p><strong>Email: </strong><%= @merchant.support_email %></p>
-	</div>
-</div>
 <% if !@merchant.deals.empty? %>
 <div class="row-fluid">
 	<div class="span3">

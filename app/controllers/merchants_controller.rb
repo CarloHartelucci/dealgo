@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
 
-	before_filter :signed_in_merchant_admin, only: :show
+	before_filter :signed_in_merchant_admin, except: [:new, :create]
 
 	def show
 		@merchant = Merchant.find_by_merchant_code(params[:id])
@@ -8,6 +8,18 @@ class MerchantsController < ApplicationController
 	
 	def new
 		@merchant = Merchant.new
+	end
+
+	def profile
+		@merchant = Merchant.find_by_merchant_code(params[:id])
+	end
+
+	def deal
+		@merchant = Merchant.find_by_merchant_code(params[:id])
+	end
+
+	def history
+		@merchant = Merchant.find_by_merchant_code(params[:id])
 	end
 
 	def create

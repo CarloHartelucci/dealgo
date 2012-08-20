@@ -1,0 +1,12 @@
+<div style="border-right:1px solid">
+	<h3><%= merchant.name %></h3>
+	<div><a href="<%= merchant.website %>" alt="<%= merchant.website %>"><img src="<%= merchant.logo %>"><img></a></div>
+	<div>
+		<a href="<%= merchant.facebook %>" alt="<%= merchant.facebook %>"><img src="/assets/facebook-icon.png"></a>
+		<a href="http://twitter.com/<%= merchant.twitter %>" alt="http://twitter.com/<%= merchant.twitter %>"><img src="/assets/twitter-icon.png"></a>
+		<a href="mailto:<%= merchant.support_email %>" alt="mailto:<%= merchant.support_email %>"><img src="/assets/email-icon.png"></a>
+	</div>
+	<div>
+		<%= merchant.description %>
+	</div>
+</div>

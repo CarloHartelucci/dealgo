@@ -15,13 +15,18 @@ db =
 					 support_email:"dirtybirdtogo@dirtybirdtogo.com",
 					 primary_color: "#F96311",
 					 secondary_color: "#C4E243",
-					 logo:"/assets/dirtybird.png")
+					 logo:"/assets/dirtybird.png",
+					 description:"Dirty Bird To GoTM offers fresh, local, and sustainable organic foods in
+								  a casual setting in New York City. Dirty Birds are all-natural chickens. Humanely raised in Pennsylvania Amish Country, veggie fed and
+								  antibiotic free.")
+
 porchetta =
 	Merchant.create!(name:"Porchetta",
 					 website:"http://porchetta.com",
 					 twitter:"porchetta",
 					 facebook:"https://www.facebook.com/pages/porchetta/122190816732",
-					 support_email:"porchetta@gmail.com")
+					 support_email:"porchetta@gmail.com",
+					 description:"Porchetta is a traditional street food of Central Italy. Sold from a cart or a truck, it is a whole roast pig boned out and stuffed with the liver, heart and other entrails mixed with savory herbs then slow roasted in a wood oven. It is sliced to order and served in a sandwich as a quick treat at the market or at a fair.")
 
 Deal.delete_all
 deal_db =

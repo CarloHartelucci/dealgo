@@ -5,9 +5,16 @@ DealGo::Application.routes.draw do
   get "/admin/deals/:id" => "admin#deals"
   get "/admin/merchants" => "admin#merchants"
   match "signout", to: 'sessions#destroy', via: :delete
-  resources :merchants
+  
+  resources :merchants, only: [:show, :new, :create]
+  get "/merchants/:id/deal" => "merchants#deal"
+  get "/merchants/:id/history" => "merchants#history"
+  get "/merchants/:id/profile" => "merchants#profile"
+
+  #sessions
   resources :sessions, only: [:new, :create, :destroy]
 
+  # Deals
   get "deals/:merchant_code" => "deals#deal"
   get "deals/:merchant_code/purchase" => "deals#purchase"
   post "deals/:merchant_code/purchase" => "deals#submit"

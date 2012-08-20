@@ -1,0 +1,28 @@
+<%= render 'admin_nav' %>
+<div class="row-fluid">
+	<h1><%= @merchant.name %></h1>
+</div>
+<div class="row">
+	<hr>
+	<div class="span2">
+		<img src="<%= @merchant.logo %>"><img>
+		Primary Color
+		<div style="padding:15px;background:<%= @merchant.primary_color %>;color:<%= @merchant.secondary_color %>"></div>
+		Secondary Color
+		<div style="padding:15px;background:<%= @merchant.secondary_color %>;color:<%= @merchant.primary_color %>"></div>
+	</div>
+	<div class="span6">
+		<h3>Description</h3>
+		<%= @merchant.description %>
+		<dl>
+			<dt><strong>Website: </strong></dt>
+			<dd><a href="<%= @merchant.website %>"><%= @merchant.website %></a></dd>
+			<dt><strong>Facebook: </strong></dt>
+			<dd><a href="<%= @merchant.facebook %>"><%= @merchant.facebook %></a></dd>
+			<dt><strong>Twitter: </strong></dt>
+			<dd><a href="http://www.twitter.com/<%= @merchant.twitter %>"><%= @merchant.twitter %></a></dd>
+			<dt><strong>Email: </strong></dt>
+			<dd><a href="mailto:<%= @merchant.support_email %>"><%= @merchant.support_email %></a></dd>
+		</dl>
+	</div>
+</div>

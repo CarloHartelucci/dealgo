@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120818195138) do
+ActiveRecord::Schema.define(:version => 20120820140712) do
 
   create_table "admin_users", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20120818195138) do
     t.string   "primary_color"
     t.string   "secondary_color"
     t.string   "logo"
+    t.string   "description"
   end
 
   add_index "merchants", ["merchant_code"], :name => "index_merchants_on_merchant_code"
