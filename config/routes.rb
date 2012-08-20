@@ -7,7 +7,7 @@ DealGo::Application.routes.draw do
   match "signout", to: 'sessions#destroy', via: :delete
   
   resources :merchants, only: [:show, :new, :create]
-  get "/merchants/:id/deal" => "merchants#deal"
+  get "/merchants/:id/deal" => "merchants#current_deal"
   get "/merchants/:id/history" => "merchants#history"
   get "/merchants/:id/profile" => "merchants#profile"
 

@@ -1,0 +1,17 @@
+ <% content_for :nav do %>
+ 	<% if authorized_merchant_admin? %>
+  	<li>
+  		<a href="/merchants/<%= @merchant.merchant_code %>/">Dashboard</a>
+  	</li>
+  	<li>
+  		<a href="/merchants/<%= @merchant.merchant_code %>/profile">Profile</a>
+  	</li>
+   	<li>
+    	<a href="/merchants/<%= @merchant.merchant_code %>/deal">Current Deal</a>
+  	</li>
+  	<li>
+    	<a href="/merchants/<%= @merchant.merchant_code %>/history">History</a>
+  	</li>
+  	<% end %>
+  	<%= render "shared/login_logout" %>
+<% end %>

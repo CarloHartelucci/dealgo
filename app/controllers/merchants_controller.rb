@@ -14,7 +14,7 @@ class MerchantsController < ApplicationController
 		@merchant = Merchant.find_by_merchant_code(params[:id])
 	end
 
-	def deal
+	def current_deal
 		@merchant = Merchant.find_by_merchant_code(params[:id])
 	end
 

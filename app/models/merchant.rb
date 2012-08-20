@@ -38,7 +38,7 @@ class Merchant < ActiveRecord::Base
   end
 
   def current_deal?
-    true
+    !self.deals.empty?
   end
 
   def current_deal
@@ -47,7 +47,7 @@ class Merchant < ActiveRecord::Base
 
   protected
     def before_create
-      self.merchant_code = self.name.downcase.gsub(" ", "-")
+      self.merchant_code = self.name.downcase.gsub(" ", "-").gsub(".", "-")
       self.twitter = "@" << self.twitter
     end
   				   
