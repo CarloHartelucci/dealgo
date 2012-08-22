@@ -34,4 +34,7 @@ DealGo::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  ENV['FACEBOOK_APP_ID'] = '380532705350533'
+  ENV['FACEBOOK_SECRET'] = 'c6f64ac7ebd5b3e5ba98a711bc6bd0d2'
 end

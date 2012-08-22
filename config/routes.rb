@@ -1,15 +1,22 @@
 DealGo::Application.routes.draw do
-  root :to => "deals#home"
+  root :to => "static#home"
+  
+
+  get "/oauth" => "oauth#oauth"
+  get "/authorize" => "oauth#authorize"
   get "/signin" => "sessions#new"
+  match "signout", to: 'sessions#destroy', via: :delete
+
   get "/admin/deals" => "admin#deals"
   get "/admin/deals/:id" => "admin#deals"
   get "/admin/merchants" => "admin#merchants"
-  match "signout", to: 'sessions#destroy', via: :delete
+ 
   
-  resources :merchants, only: [:show, :new, :create]
+  get "/merchants/signup" => "merchants#new"
   get "/merchants/:id/deal" => "merchants#current_deal"
   get "/merchants/:id/history" => "merchants#history"
   get "/merchants/:id/profile" => "merchants#profile"
+  resources :merchants, only: [:show, :create]
 
   #sessions
   resources :sessions, only: [:new, :create, :destroy]

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :access_token, :access_token_expiration
   has_secure_password
 
   validates :name, presence: true, length: {maximum: 50}
