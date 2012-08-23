@@ -13,6 +13,7 @@ DealGo::Application.routes.draw do
   get "/admin/deals/:id" => "admin#deals"
   get "/admin/merchants" => "admin#merchants"
  
+  get "/home" => "consumers#home"
   
   get "/merchants/signup" => "merchants#new"
   get "/merchants/:id/deal" => "merchants#current_deal"

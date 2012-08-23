@@ -75,7 +75,8 @@ class UsersController < ApplicationController
                 return
               else
                 @user = ConsumerUser.find(@user.id)
-                redirect_to "/user/#{@user.user_name}"
+                sign_in @user
+                redirect_to "/home"
                 return
               end
             end
@@ -122,6 +123,9 @@ class UsersController < ApplicationController
     @user.twitter = params[:twitter]
     @user.user_name = params[:user_name]
     @user.save
+    sign_in @user
+
+    redirect_to "/home"
   end
 end
 
