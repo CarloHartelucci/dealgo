@@ -6,9 +6,11 @@ DealGo::Application.routes.draw do
   post "/register/merchant" => "users#create_merchant"
   post "/register/consumer" => "users#create_consumer"
 
-  get "/signin" => "sessions#new"
+  
   match "signout", to: 'sessions#destroy', via: :delete
 
+  get "/admin" => "admin#new"
+  post "/admin" => "admin#create"
   get "/admin/deals" => "admin#deals"
   get "/admin/deals/:id" => "admin#deals"
   get "/admin/merchants" => "admin#merchants"
@@ -22,7 +24,7 @@ DealGo::Application.routes.draw do
   resources :merchants, only: [:show, :create]
 
   #sessions
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:destroy]
 
   # Deals
   get "deals/:merchant_code" => "deals#deal"

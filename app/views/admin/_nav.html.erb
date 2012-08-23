@@ -1,16 +1,8 @@
  <% content_for :nav do %>
- 	<% if @active=="merchants" %>
-  	<li class="active">
-  	<% else %>
    	<li>
-  	<% end %>
   		<a href="/admin/merchants">Merchants</a>
   	</li>
-  	<% if @active=="deals" %>
-  	<li class="active">
-  	<% else %>
    	<li>
-  	<% end %>
     	<a href="/admin/deals">Deals</a>
   	</li>
   	<%= render "shared/login_logout" %>

@@ -1,7 +1,27 @@
 class AdminController < ApplicationController
 	
-	before_filter :signed_in_admin
+	before_filter :signed_in_admin, except: [:new, :create]
 	
+	def new
+  	end
+
+	def create
+	  	user = User.find_by_email(params[:email])
+	  	if user && user.authenticate(params[:password])
+	  	  sign_in user
+	  	  flash[:success] = "Welcome to DealGo"
+	  	  if user.type == "AdminUser"
+	        redirect_to '/admin/merchants'
+	      else
+	        merchant_user = MerchantUser.find(user.id);
+	        redirect_to "/merchants/#{merchant_user.merchant.merchant_code}"
+	      end
+	  	else
+	  	  flash[:error] = 'Invalid email/password combination' # Not quite right!
+	      redirect_to '/signin'
+	  	end
+	end
+
 	def deals
 		@active = "deals"
 		@deals = Deal.all
