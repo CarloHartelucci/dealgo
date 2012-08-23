@@ -93,8 +93,6 @@ AdminUser.create(:email => "admin1@yahoo.com",
 	        :password_confirmation => "letmein")
 MerchantUser.create!(name:"Diry Bird",
 					email:"dirty@yahoo.com",
-					password:"letmein",
-					password_confirmation:"letmein",
 					merchant_id:db.id)
 
 

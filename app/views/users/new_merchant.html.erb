@@ -2,24 +2,7 @@
 <%= render 'shared/error_messages', errors:@errors %>
 <div class="row-fluid">
 	<div class="span6">
-		<form class="form-inline" accept-charset="UTF-8" action="/merchants" method="post">
-			
-			<h3>User Information</h3>
-			<label class="span12">Name
-				<input type="text" placeholder="Name" id="username" name="username">
-			</label>
-
-			<label class="span12">Email
-				<input type="text" placeholder="Email" id="email" name="email">
-			</label>
-			
-			<label class="span12">Password
-				<input type="password" placeholder="Password" id="password" name="password">
-			</label>
-
-			<label class="span12">Password Confirmation
-				<input type="password" placeholder="Password Confirmation" id="password_confirmation" name="password_confirmation">
-			</label>
+		<form class="form-inline" accept-charset="UTF-8" action="/register/merchant" method="post">
 
 			<h3>Merchant Information</h3>
 			<label class="span12">Merchant Name
@@ -42,7 +25,7 @@
 				<input type="email" placeholder="Support Email Address" id="support_email" name="support_email">
 			</label>
 
-
+			<input type="hidden" name="user_id" value="<%= @user.id %>"/>
 			<button type="submit" class="offset2 btn btn-large btn-success">Create Merchant</button>
 		</form>
 	</div>

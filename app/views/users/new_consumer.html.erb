@@ -1,0 +1,24 @@
+<%= render 'nav' %>
+<%= render 'shared/error_messages', errors:@errors %>
+<div class="row-fluid">
+	<div class="span6">
+		<form class="form-inline" accept-charset="UTF-8" action="/register/consumer" method="post">
+
+			<h3>Use Information</h3>
+			<label class="span12">User Name
+				<input type="text" placeholder="User Name" id="user_name" name="user_name">
+			</label>
+
+			<label class="span12">Twitter
+				<input type="text" placeholder="Twitter ID" id="twitter" name="twitter">
+			</label>
+				
+			<label class="span12">Email Address
+				<input type="email" placeholder="Email Address" id="email" name="email">
+			</label>
+
+			<input type="hidden" name="user_id" value="<%= @user.id %>"/>
+			<button type="submit" class="offset2 btn btn-large btn-success">Create User</button>
+		</form>
+	</div>
+</div>

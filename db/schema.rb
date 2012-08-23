@@ -11,9 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120820163747) do
+ActiveRecord::Schema.define(:version => 20120823152951) do
 
   create_table "admin_users", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "consumer_users", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -112,12 +117,20 @@ ActiveRecord::Schema.define(:version => 20120820163747) do
     t.string   "email"
     t.string   "password"
     t.string   "password_confirmation"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "type"
     t.integer  "merchant_id"
+    t.string   "access_token"
+    t.string   "access_token_expiration"
+    t.string   "fb_user_id"
+    t.string   "user_name"
+    t.string   "twitter"
   end
+
+  add_index "users", ["access_token"], :name => "index_users_on_access_token"
+  add_index "users", ["fb_user_id"], :name => "index_users_on_fb_user_id"
 
 end

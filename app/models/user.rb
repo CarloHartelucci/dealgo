@@ -1,16 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :access_token, :access_token_expiration
-  has_secure_password
+  attr_accessible :email, :name, :access_token, :access_token_expiration, :fb_user_id
+
 
   validates :name, presence: true, length: {maximum: 50}
-
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-  			uniqueness: { case_sensitive: false }
-  before_save { |user| user.email = email.downcase }
-
-  validates :password, presence: true, length: {minimum: 6}
-  validates :password_confirmation, presence: true
 
   before_save :create_remember_token
 
