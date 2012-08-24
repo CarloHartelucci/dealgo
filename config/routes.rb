@@ -1,8 +1,8 @@
 DealGo::Application.routes.draw do
   root :to => "static#home"
-  get "/authorize" => "users#authorize"
   get "/signup/:type" => "users#new"
   get "/register/merchant" => "users#new_merchant"
+  get "/register/consumer" => "users#new_consumer"
   post "/register/merchant" => "users#create_merchant"
   post "/register/consumer" => "users#create_consumer"
 
